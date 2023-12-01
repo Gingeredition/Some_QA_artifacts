@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "1e885fd5-6399-4cdd-8b3c-dcc139356ab3",
+		"name": "Test of ''Create Organization'' method",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28915874"
+	},
+	"item": [
+		{
+			"name": "создание организации с полным набором параметров",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"ООО Ромашка\",\r\n    \"inn\": \"185956487{{$randomInt}}\",\r\n    \"ogrn\": \"9143918389859\",\r\n    \"kpp\": \"846344601\",\r\n    \"address\": \"г. Кострома, ул. Ленина, д.5\",\r\n    \"region\": \"44\",\r\n    \"phone\": \"+79109103355\",\r\n    \"head\": [\r\n        {\r\n            \"inn\": \"768640814264\",\r\n            \"snils\": \"43389465723\",\r\n            \"position\": \"Ген. директор\",\r\n            \"firstName\": \"Ваня\",\r\n            \"middleName\": \"Сергеевич\",\r\n            \"lastName\": \"Иванов\",\r\n            \"citizenship\": \"Росcия\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://intership-study.k.renue.ru/api/v1/de/organization"
+			},
+			"response": []
+		},
+		{
+			"name": "создание организации c минимальным набором параметров",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"ООО Ромашка\",\r\n    \"inn\": \"185956487{{$randomInt}}\",\r\n    \"ogrn\": \"9143918389859\",\r\n    \"kpp\": \"846344601\",\r\n    \"address\": \"г. Кострома, ул. Ленина, д.5\",\r\n    \"region\": \"44\",\r\n    \"phone\": \"\",\r\n    \"head\": [\r\n        {\r\n            \"inn\": \"\",\r\n            \"snils\": \"43389465723\",\r\n            \"position\": \"Ген. директор\",\r\n            \"firstName\": \"Ваня\",\r\n            \"middleName\": \"\",\r\n            \"lastName\": \"Иванов\",\r\n            \"citizenship\": \"\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://intership-study.k.renue.ru/api/v1/de/organization"
+			},
+			"response": []
+		},
+		{
+			"name": "проверка полей на обязательность",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"\",\r\n    \"inn\": \"\",\r\n    \"ogrn\": \"\",\r\n    \"kpp\": \"\",\r\n    \"address\": \"\",\r\n    \"region\": \"\",\r\n    \"phone\": \"+79109103355\",\r\n    \"head\": [\r\n        {\r\n            \"inn\": \"768640814264\",\r\n            \"snils\": \"\",\r\n            \"position\": \"\",\r\n            \"firstName\": \"\",\r\n            \"middleName\": \"Иванович\",\r\n            \"lastName\": \"\",\r\n            \"citizenship\": \"Россия\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://intership-study.k.renue.ru/api/v1/de/organization"
+			},
+			"response": []
+		},
+		{
+			"name": "проверка обязательности структуры head",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"ООО Ромашка\",\r\n    \"inn\": \"185956487{{$randomInt}}\",\r\n    \"ogrn\": \"9143918389859\",\r\n    \"kpp\": \"846344601\",\r\n    \"address\": \"г. Кострома, ул. Ленина, д.5\",\r\n    \"region\": \"44\",\r\n    \"phone\": \"+79109103355\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://intership-study.k.renue.ru/api/v1/de/organization"
+			},
+			"response": []
+		},
+		{
+			"name": "все значения на английском",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"SAD\",\r\n    \"inn\": \"185956487{{$randomInt}}\",\r\n    \"ogrn\": \"9143918389859\",\r\n    \"kpp\": \"846344601\",\r\n    \"address\": \"ELn\",\r\n    \"region\": \"44\",\r\n    \"phone\": \"+79109103355\",\r\n    \"head\": [\r\n        {\r\n            \"inn\": \"768640814264\",\r\n            \"snils\": \"43389465723\",\r\n            \"position\": \"CIO\",\r\n            \"firstName\": \"IVAN\",\r\n            \"middleName\": \"SER\",\r\n            \"lastName\": \"IVAND\",\r\n            \"citizenship\": \"Rus\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://intership-study.k.renue.ru/api/v1/de/organization"
+			},
+			"response": []
+		},
+		{
+			"name": "пустое тело запроса",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://intership-study.k.renue.ru/api/v1/de/organization"
+			},
+			"response": []
+		},
+		{
+			"name": "тип данных number",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"ООО Ромашка\",\r\n    \"inn\": 1859564444,\r\n    \"ogrn\": 9143918389859,\r\n    \"kpp\": 846344601,\r\n    \"address\": \"г. Кострома, ул. Ленина, д.5\",\r\n    \"region\": 44,\r\n    \"phone\": 79109103355,\r\n    \"head\": [\r\n        {\r\n            \"inn\": 768640814264,\r\n            \"snils\": 43389465723,\r\n            \"position\": \"Ген. директор\",\r\n            \"firstName\": \"Ваня\",\r\n            \"middleName\": \"Сергеевич\",\r\n            \"lastName\": \"Иванов\",\r\n            \"citizenship\": \"Росcия\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://intership-study.k.renue.ru/api/v1/de/organization"
+			},
+			"response": []
+		},
+		{
+			"name": "тип данных datetime",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": {{$randomDateRecent}},\r\n    \"inn\": \"1234567891\",\r\n    \"ogrn\": \"1234567891231\",\r\n    \"kpp\": \"123456789\",\r\n    \"address\": {{$randomDateRecent}},\r\n    \"region\": \"15\",\r\n    \"phone\": \"123\",\r\n    \"head\": [\r\n        {\r\n            \"inn\": {{$randomDateRecent}},\r\n            \"snils\": {{$randomDateRecent}},\r\n            \"position\": {{$randomDateRecent}},\r\n            \"firstName\": {{$randomDateRecent}},\r\n            \"middleName\": {{$randomDateRecent}},\r\n            \"lastName\": {{$randomDateRecent}},\r\n            \"citizenship\": {{$randomDateRecent}}\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://intership-study.k.renue.ru/api/v1/de/organization"
+			},
+			"response": []
+		},
+		{
+			"name": "тип данных boolean",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": {{$randomBoolean}},\r\n    \"inn\": \"185956487{{$randomInt}}\",\r\n    \"ogrn\": \"9143918389859\",\r\n    \"kpp\": \"846344601\",\r\n    \"address\": {{$randomBoolean}},\r\n    \"region\": \"44\",\r\n    \"phone\": \"+79109103355\",\r\n    \"head\": [\r\n        {\r\n            \"inn\": {{$randomBoolean}},\r\n            \"snils\": {{$randomBoolean}},\r\n            \"position\": {{$randomBoolean}},\r\n            \"firstName\": {{$randomBoolean}},\r\n            \"middleName\": {{$randomBoolean}},\r\n            \"lastName\": {{$randomBoolean}},\r\n            \"citizenship\": {{$randomBoolean}}\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://intership-study.k.renue.ru/api/v1/de/organization"
+			},
+			"response": []
+		},
+		{
+			"name": "значения - пробелы",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"        \",\r\n    \"inn\": \"          \",\r\n    \"ogrn\": \"             \",\r\n    \"kpp\": \"         \",\r\n    \"address\": \"         \",\r\n    \"region\": \"  \",\r\n    \"phone\": \"        \",\r\n    \"head\": [\r\n        {\r\n            \"inn\": \"            \",\r\n            \"snils\": \"           \",\r\n            \"position\": \"    \",\r\n            \"firstName\": \"   \",\r\n            \"middleName\": \"    \",\r\n            \"lastName\": \"     \",\r\n            \"citizenship\": \"    \"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://intership-study.k.renue.ru/api/v1/de/organization"
+			},
+			"response": []
+		},
+		{
+			"name": "значения - спецсимволы",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"'-=[]%~!@#$%^&*()_+:\",\r\n    \"inn\": \"'-=[]%~!@#\",\r\n    \"ogrn\": \"'-=[]%~!@#$%^\",\r\n    \"kpp\": \"'-=[%~!@#\",\r\n    \"address\": \"-=[]%~!@#$%^&*-=\",\r\n    \"region\": \"&^\",\r\n    \"phone\": \"'-=[%~!@#Ч\",\r\n    \"head\": [\r\n        {\r\n            \"inn\": \"%$'-=[]%~!@#\",\r\n            \"snils\": \"%$'-=[]%~!@#\",\r\n            \"position\": \"%$'-=[]%~!@#\",\r\n            \"firstName\": \"%$'-=[]%~!@#\",\r\n            \"middleName\": \"%$'-=[]%~!@#\",\r\n            \"lastName\": \"%$'-=[]%~!@#\",\r\n            \"citizenship\": \"%$'-=[]%~!@#\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://intership-study.k.renue.ru/api/v1/de/organization"
+			},
+			"response": []
+		},
+		{
+			"name": "проверка на количество символов",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А1\",\r\n    \"inn\": \"12345\",\r\n    \"ogrn\": \"9\",\r\n    \"kpp\": \"8463446010\",\r\n    \"address\": \"А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А А\",\r\n    \"region\": \"44\",\r\n    \"phone\": \"-791091\",\r\n    \"head\": [\r\n        {\r\n            \"inn\": \"123456789145\",\r\n            \"snils\": \"4\",\r\n            \"position\": \"123456789012345678901234567890123456789012345678901\",\r\n            \"firstName\": \"1234567890123456789012345678901234567890123456789012345678901\",\r\n            \"middleName\": \"1234567890123456789012345678901234567890123456789012345678901\",\r\n            \"lastName\": \"1234567890123456789012345678901234567890123456789012345678901\",\r\n            \"citizenship\": \"Р\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://intership-study.k.renue.ru/api/v1/de/organization"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": ""
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
